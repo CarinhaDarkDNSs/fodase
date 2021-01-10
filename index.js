@@ -133,7 +133,7 @@ async function starts() {
 			}
 
 			const botNumber = client.user.jid
-			const ownerNumber = ["553897348938@s.whatsapp.net"] // replace this with your number
+			const ownerNumber = ["5512991626563@s.whatsapp.net"] // replace this with your number
 			const isGroup = from.endsWith('@g.us')
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
@@ -582,7 +582,7 @@ async function starts() {
 					reply('Excluido todos os chats com sucesso :)')
 					break
 				case 'falar':
-					if (!isOwner) return reply('Quem é você lek?')
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply('.......')
 					anu = await client.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
@@ -748,8 +748,7 @@ async function starts() {
 					}
                                       break
 				case 'clonar':
-					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isOwner) return reply('Quem é você lek?')
 					if (args.length < 1) return reply('A tag alvo que você deseja clonar')
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
