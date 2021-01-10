@@ -104,7 +104,7 @@ const help = (prefix) => {
               *MENU DO BOT*【✔】
        • ────── ✾ ────── •              
 
-➸ *${prefix}+help1* ♔
+➸ *${prefix}help* ♔
     
 
 ╔════════════════════
